@@ -1,0 +1,17 @@
+.hashtag {
+  border: 0.5px solid #c4c4c4;
+  border-radius: 11px;
+  color: $primary-color;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 0 0.5em 0 0.5em;
+  margin: 2px 3px;
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: $primary-color;
+    transition: ease-in-out 0.4s;
+  }
+}

@@ -1,1 +1,13 @@
+@import './utils/variables';
+@import './utils/mixins';
+
 @import './base/reset';
+@import './base/typography';
+
+@import './layout/header';
+@import './layout/index-main';
+
+@import './components/_photographer-card';
+@import './components/hashtag';
+
+@import './pages/index-queries';

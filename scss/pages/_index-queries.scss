@@ -1,0 +1,5 @@
+body {
+  @include large-desktop-rules {
+    margin: 0 300px;
+  }
+}

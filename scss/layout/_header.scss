@@ -1,0 +1,35 @@
+header {
+  margin: 40px 40px 50px 40px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @include tablets-rules {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.logo {
+  margin-right: 50px;
+  @include tablets-rules {
+    margin-bottom: 2rem;
+  }
+  img {
+    width: 200px;
+    height: 50px;
+    @include phones-rules {
+      width: 150px;
+      height: 37.5px;
+    }
+  }
+}
+
+.header-nav {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    @include phones-rules {
+      justify-content: center;
+    }
+  }
+}

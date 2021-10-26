@@ -1,0 +1,47 @@
+.photographer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em 1em 2em 1em;
+  width: 30%;
+  @include phones-rules {
+    width: 50%;
+  }
+  a {
+    text-decoration: none;
+  }
+  &__profile-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  &__name {
+    font-size: 36px;
+    color: $secondary-color;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  &__location {
+    color: $primary-color;
+    font-size: 13px;
+    margin-bottom: 0.3rem;
+  }
+  &__bio {
+    font-size: 10px;
+    color: #000000;
+
+    margin-bottom: 0.3rem;
+  }
+  &__pricing {
+    font-size: 9px;
+    color: #757575;
+    margin-bottom: 0.6rem;
+  }
+  &__hashtag-list {
+    ul {
+      display: flex;
+    }
+  }
+}

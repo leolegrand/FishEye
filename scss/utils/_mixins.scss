@@ -1,0 +1,17 @@
+@mixin phones-rules {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
+
+@mixin tablets-rules {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin large-desktop-rules {
+  @media (min-width: 1600px) {
+    @content;
+  }
+}

@@ -1,0 +1,22 @@
+.index-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  h1 {
+    color: $primary-color;
+    position: absolute;
+    top: 42px;
+    right: 60px;
+    font-size: 36px;
+    line-height: 47px;
+    @include tablets-rules {
+      font-size: 24px;
+    }
+    @include phones-rules {
+      font-size: 14px;
+      top: 35px;
+      right: 30px;
+      font-weight: 500;
+    }
+  }
+}

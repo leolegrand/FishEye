@@ -1,0 +1,22 @@
+.sort-by-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin: 40px 0px 10px 0px;
+  @include phones-rules {
+    display: none;
+  }
+  & > p {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23px;
+  }
+}
+
+.select-button {
+  text-align: center;
+  &__option {
+  }
+}

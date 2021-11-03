@@ -1,0 +1,6 @@
+.photographer-main-container {
+  margin: 0 50px;
+  @include phones-rules {
+    margin: 0px 10px;
+  }
+}

@@ -6,8 +6,14 @@
 
 @import './layout/header';
 @import './layout/index-main';
+@import './layout/photograher-page-info';
+@import './layout/media-container';
+@import './layout/photographer-main-container';
 
 @import './components/_photographer-card';
 @import './components/hashtag';
+@import './components/buttons';
+@import './components/media';
+@import './components/select-button';
 
 @import './pages/index-queries';

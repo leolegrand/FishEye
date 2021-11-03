@@ -4,6 +4,12 @@
   }
 }
 
+@mixin small-tablets-rules {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
 @mixin tablets-rules {
   @media (max-width: 1230px) {
     @content;
@@ -11,7 +17,7 @@
 }
 
 @mixin large-desktop-rules {
-  @media (min-width: 1600px) {
+  @media (min-width: 1820px) {
     @content;
   }
 }

@@ -4,9 +4,9 @@ console.log({ queryString })
 
 // get the id parameter from queryString
 const urlParams = new URLSearchParams(queryString)
-const id = urlParams.get('id')
+const currentId = urlParams.get('id')
 
-console.log({ id })
+console.log({ currentId })
 
 async function fetchFishEyeData() {
   // fetch the data & stock the response in a variable
@@ -18,12 +18,20 @@ async function fetchFishEyeData() {
 
   // get the data from the photographer that have the same id as the page does
   let currentPhotographer = photographersData.filter(
-    (photographer) => photographer.id == id
+    (photographer) => photographer.id == currentId
   )
   console.log(currentPhotographer[0])
 
-  let filteredMedia = mediaData.filter((media) => media.photographerId == id)
+  let filteredMedia = mediaData.filter(
+    (media) => media.photographerId == currentId
+  )
   console.log(filteredMedia)
+
+  let videoFromMedia = filteredMedia.filter((media) => media.video != null)
+  console.log(videoFromMedia)
+
+  let imageFromMedia = filteredMedia.filter((media) => media.image != null)
+  console.log(imageFromMedia)
 
   let photographerPageBanner = document.getElementById(
     'photographer-page-banner'
@@ -47,15 +55,31 @@ async function fetchFishEyeData() {
 
   let mediaContainer = document.getElementById('media-container')
 
-  for (i = 0; i < filteredMedia.length; i++) {
+  for (i = 0; i < imageFromMedia.length; i++) {
     mediaContainer.innerHTML += `<article class="media">
         <a>
-            <img src="./img/${filteredMedia[i].image}" class="media__content">
+            <img src="./img/${imageFromMedia[i].image}" class="media__content">
         </a>
         <div class="media__body">
-            <h2 class="media__title">${filteredMedia[i].title}</h2>
+            <h2 class="media__title">${imageFromMedia[i].title}</h2>
             <div class="media__likes">
-                <p class="media__likes__count">${filteredMedia[i].likes}</p>
+                <p class="media__likes__count">${imageFromMedia[i].likes}</p>
+                <img src="./img/icons/like-icon.png" class="media__likes__img">
+            </div>
+        </div>
+    </article>
+        
+        `
+  }
+  for (i = 0; i < videoFromMedia.length; i++) {
+    mediaContainer.innerHTML += `<article class="media">
+        <a>
+            <video width="350" height="300" preload="metadata" controls> <source src="img/${videoFromMedia[i].video}#t=0.1" type="video/mp4"></video>
+        </a>
+        <div class="media__body">
+            <h2 class="media__title">${videoFromMedia[i].title}</h2>
+            <div class="media__likes">
+                <p class="media__likes__count">${videoFromMedia[i].likes}</p>
                 <img src="./img/icons/like-icon.png" class="media__likes__img">
             </div>
         </div>

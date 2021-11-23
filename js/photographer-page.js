@@ -1,92 +1,97 @@
+let currentPhotographer, mediaOfCurrentPhotographer
+let mediaContainer = document.getElementById('media-container')
+
 // get string from URL into queryString
 const queryString = window.location.search
-console.log({ queryString })
 
-// get the id parameter from queryString
+// get the id parameter from queryString, corresponding to the ID of clicked photographer in index.html
 const urlParams = new URLSearchParams(queryString)
 const currentId = urlParams.get('id')
 
-console.log({ currentId })
+// MAIN FUNCTION
+// fetch the data from the JSON
+fetch('./json/fisheyeData.json')
+  .then((response) => response.json())
+  .then((data) => {
+    // sort the data into two var
+    photographersData = data.photographers
+    mediaData = data.media
 
-async function fetchFishEyeData() {
-  // fetch the data & stock the response in a variable
-  const response = await fetch('./json/fisheyeData.json')
-  // when the response is received, convert it to json then stock it into a new var
-  let fisheyeData = await response.json()
-  const photographersData = fisheyeData.photographers
-  const mediaData = fisheyeData.media
+    //call those fonction to generate dynamically the website
+    photographerContent()
+    mediaContent()
+  })
 
-  // get the data from the photographer that have the same id as the page does
-  let currentPhotographer = photographersData.filter(
-    (photographer) => photographer.id == currentId
+function photographerContent() {
+  // filter photographersData to get the matching ID
+  currentPhotographer = photographersData.filter(
+    (photographer) => photographer.id.toString() === currentId
   )
-  console.log(currentPhotographer[0])
 
-  let filteredMedia = mediaData.filter(
-    (media) => media.photographerId == currentId
-  )
-  console.log(filteredMedia)
+  // apply the class Photographer to each element of currentPhotographer
+  currentPhotographer.forEach((i) => {
+    let photographer = new Photographer(i)
 
-  let videoFromMedia = filteredMedia.filter((media) => media.video != null)
-  console.log(videoFromMedia)
-
-  let imageFromMedia = filteredMedia.filter((media) => media.image != null)
-  console.log(imageFromMedia)
-
-  let photographerPageBanner = document.getElementById(
-    'photographer-page-banner'
-  )
-  let photographerTags = document.getElementById('photographer-page-tags')
-  // create a template for the banner of photographer-page
-  photographerPageBanner.innerHTML = `
-            <div class="photographer-page-info-container">
-                <h1 class="photographer-page-banner__name">${currentPhotographer[0].name}</h1>
-                <p class="photographer-page-banner__location">${currentPhotographer[0].city}, ${currentPhotographer[0].country}</p>
-                <p class="photographer-page-banner__bio">${currentPhotographer[0].tagline}</p>
-                <nav>
-                    <ul id="photographer-page-tags">
-                    <li class="hashtag">#${currentPhotographer[0].tags}</li>
-                    </ul>
-                </nav>
-                <button class="main-button main-button--photographer-page">Contactez-moi</button>
-            </div>
-
-        <img class="photographer-page-banner__img" src="./img/${currentPhotographer[0].portrait}" alt="">`
-
-  let mediaContainer = document.getElementById('media-container')
-
-  for (i = 0; i < imageFromMedia.length; i++) {
-    mediaContainer.innerHTML += `<article class="media">
-        <a>
-            <img src="./img/${imageFromMedia[i].image}" class="media__content">
-        </a>
-        <div class="media__body">
-            <h2 class="media__title">${imageFromMedia[i].title}</h2>
-            <div class="media__likes">
-                <p class="media__likes__count">${imageFromMedia[i].likes}</p>
-                <img src="./img/icons/like-icon.png" class="media__likes__img">
-            </div>
-        </div>
-    </article>
-        
-        `
-  }
-  for (i = 0; i < videoFromMedia.length; i++) {
-    mediaContainer.innerHTML += `<article class="media">
-        <a>
-            <video width="350" height="300" preload="metadata" controls> <source src="img/${videoFromMedia[i].video}#t=0.1" type="video/mp4"></video>
-        </a>
-        <div class="media__body">
-            <h2 class="media__title">${videoFromMedia[i].title}</h2>
-            <div class="media__likes">
-                <p class="media__likes__count">${videoFromMedia[i].likes}</p>
-                <img src="./img/icons/like-icon.png" class="media__likes__img">
-            </div>
-        </div>
-    </article>
-        
-        `
-  }
+    // call the photographerPageTemplate's method to create dynamic HTML content about the current photographer
+    photographer.photographerPageTemplate()
+  })
 }
 
-fetchFishEyeData()
+function mediaContent() {
+  // filter mediaData to get the medias that match with the current ID
+  mediaOfCurrentPhotographer = mediaData.filter(
+    (media) => media.photographerId.toString() === currentId
+  )
+  // apply the class MediasTemplate to the medias
+  media = new MediasTemplate(mediaOfCurrentPhotographer)
+
+  // call the method to sort image & video from medias
+  media.sortingMedias()
+
+  // call this method to generate a sticky footer with price and likes count
+  media.stickyFooter()
+}
+
+// create an array (arr) and apply the MediasTemplate class to acces a sorting method
+function sortByLikesOnClick() {
+  let arr
+  mediasSortedByLikes = new MediasTemplate(arr)
+  // sort the array by number or likes
+  mediasSortedByLikes.sortedByLikes()
+  // clear the template
+  mediasSortedByLikes.clearContainer()
+  // generate a new template with the sorted array
+  mediasSortedByLikes.mediasTemplate()
+}
+
+// create an array (arr) and apply the MediasTemplate class to acces a sorting method
+function sortByDateOnClick() {
+  let arr
+  mediasSortedByDate = new MediasTemplate(arr)
+  // sort the array by date
+  mediasSortedByDate.sortedByDate()
+  // clear the template
+  mediasSortedByDate.clearContainer()
+  // generate a new template with the sorted array
+  mediasSortedByDate.mediasTemplate()
+}
+
+// create an array (arr) and apply the MediasTemplate class to acces a sorting method
+function sortByNameOnClick() {
+  let arr
+  mediasSortedByName = new MediasTemplate(arr)
+  // sort the array by name
+  mediasSortedByName.sortedByName()
+  // clear the template
+  mediasSortedByName.clearContainer()
+  // generate a new template with the sorted array
+  mediasSortedByName.mediasTemplate()
+}
+
+// increment like count in a media
+// used with onClick DOM element
+function addLike(mediaid, medialikes) {
+  const newCount = medialikes + 1
+  document.getElementById(`likes-count-${mediaid}`).innerHTML = newCount
+  console.log('testoj')
+}

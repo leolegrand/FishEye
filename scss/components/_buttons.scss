@@ -5,12 +5,60 @@
   height: 4.5em;
   border-radius: 5px;
   border: none;
+  font-size: 18px;
+  font-weight: 500;
   &--photographer-page {
     position: absolute;
-    right: -200px;
+    right: -300px;
     top: 20px;
-    @include small-tablets-rules {
+    @include tablets-rules {
       display: none;
     }
+  }
+  &--without-border-radius {
+    cursor: pointer;
+    background-color: $primary-color;
+    color: white;
+    width: 10em;
+    height: 4.5em;
+    border-radius: 0px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  &--select {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    & svg {
+      margin-left: 12px;
+    }
+  }
+}
+
+.form__contact-me {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $primary-color;
+  padding: 20px;
+  color: white;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  @include phones-rules {
+    display: block;
+  }
+  @include tablets-rules {
+    display: block;
   }
 }

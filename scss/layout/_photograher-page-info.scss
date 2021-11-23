@@ -4,12 +4,15 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  white-space: nowrap;
   & ul {
     display: flex;
     justify-content: flex-start;
-    > li {
-      font-size: 10px;
+    flex-wrap: wrap;
+    > li > a {
+      font-size: 18px;
+      @include phones-rules {
+        font-size: 10px;
+      }
     }
   }
   @include phones-rules {
@@ -39,7 +42,7 @@
   }
   &__location {
     color: $primary-color;
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 10px;
     @include phones-rules {
       font-size: 13px;
@@ -48,7 +51,7 @@
   }
   &__bio {
     color: #525252;
-    font-size: 12px;
+    font-size: 18px;
     margin-bottom: 10px;
     @include phones-rules {
       font-size: 13px;

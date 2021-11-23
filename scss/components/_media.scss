@@ -6,8 +6,9 @@
     object-fit: cover;
     border-radius: 5px;
     @include phones-rules {
-      width: 335px;
-      height: 190px;
+      max-height: 190px;
+      max-width: 335px;
+      width: 90vw;
     }
   }
   &__body {

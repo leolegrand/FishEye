@@ -1,0 +1,32 @@
+.photographer-page-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px 5px 0px 0px;
+  width: 376px;
+  height: 59px;
+  position: fixed;
+  right: 5vh;
+  bottom: 0vh;
+  background-color: #db8876;
+  @include tablets-rules {
+    display: none;
+  }
+  @include phones-rules {
+    display: none;
+  }
+  & p {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 31px;
+  }
+  &-likes {
+    display: flex;
+    align-items: center;
+    & svg {
+      margin-left: 5px;
+      height: 17.5px;
+      width: 18.35px;
+    }
+  }
+}

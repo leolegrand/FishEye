@@ -1,0 +1,91 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba($color: white, $alpha: 0.7);
+  height: 100%;
+  z-index: 2;
+  & h2 {
+    margin-top: 30px;
+    font-size: 64px;
+    margin-bottom: 2rem;
+  }
+  & label {
+    font-size: 36px;
+  }
+
+  &__input {
+    padding: 2rem;
+    border: none;
+    height: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 2rem;
+    @include phones-rules {
+      height: 75px;
+    }
+    &--large {
+      height: 200px;
+      @include phones-rules {
+        height: 300px;
+      }
+    }
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: #db8876;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 700px;
+    height: 900px;
+    @include phones-rules {
+      height: 100vh;
+      width: 100vh;
+      border-radius: 0px;
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 40px;
+    background: url(/img/icons/whitecross.svg) 100% 100% / 35px 35px no-repeat;
+    border: none;
+    height: 35px;
+    width: 35px;
+    text-indent: -10000px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__submit {
+    cursor: pointer;
+    @include phones-rules {
+      height: 35px;
+      width: 170px;
+      font-weight: 700;
+    }
+  }
+}
+
+.submit-container {
+  margin-top: 20px;
+  @include phones-rules {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

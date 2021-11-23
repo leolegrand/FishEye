@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="body-container">
     <header class="header-photographer-page">
         <a href="./index.html" class="logo">
             <img src="./img/logo/logo.png">
@@ -22,22 +23,36 @@
 
         <div class="sort-by-container">
             <p>Trier par</p>
-            <select class="main-button select-button">
-                <option class="main-button select-button_option">Truc</option>
-                <option class="main-button select-button_option">Bidule</option>
-                <option class="main-button select-button_option">Muche</option>
-            </select>
-            </div>
-
-        
-        
-
+                <div class="sort-by-menu" id="sort-by-menu">
+                    <div>
+                        <button class="main-button--without-border-radius main-button--select" onclick="sortByLikesOnClick()">Popularité
+                           </button>
+                    </div>
+                    <svg class="sort-by-menu-arrow" id="menu-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M5 6l5 5l5-5l2 1l-7 7l-7-7z" fill="currentColor"/></svg>
+                    
+                    <div id="button-date" ></div>
+                    <div id="button-title"></div>
+                </div>
+        </div> 
         <section class="media-container" id="media-container">
-
         </section>
+    
+    
     </main>
+
+
+
+
     
     <script src="./js/photographer-page.js"></script>
-    <script src="./js/test.js" ></script>
+    <script src="./js/Factories/MediasFactory.js"></script>
+    <script src="./js/Templates/Photographer.js"></script>
+    <script src="./js/Templates/ImageMedia.js"></script>
+    <script src="./js/Templates/VideoMedia.js"></script>
+    <script src="./js/Templates/MediasTemplate.js"></script>
+    <script src="./js/Modules/dropdown-menu-select.js"></script>
+    <script src="./js/Modules/lightbox.js"></script>
+    <script src="./js/Modules/form.js"></script>
+</div>
 </body>
 </html>

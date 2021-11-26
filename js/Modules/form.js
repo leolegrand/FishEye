@@ -2,7 +2,7 @@
 function createForm(a) {
   const form = document.createElement('div')
   form.classList.add('form')
-  form.innerHTML = `<div class="form__container">
+  form.innerHTML = `<div class="form__container" role="dialog">
     <button class="form__close">Fermer</button>
     <h2>Contactez-moi ${a}</h2>
     <label>Nom</label>

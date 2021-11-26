@@ -1,4 +1,4 @@
-class MediasTemplate {
+class Medias {
   constructor(arr) {
     this.arr = arr
   }

@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FishEye | Accueil</title>
     <link href="./css/main.css" rel="stylesheet">
-    <link href="./photographer-page.html rel="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <a href="./index.html" class="logo">
-            <img src="./img/logo/logo.png">
+            <img src="./img/logo/logo.png" alt="Fisheye Home page">
         </a>
         <nav class="header-nav">
             <ul>
-                <li class="hashtag header-nav__item" id="portrait" onclick="getIdOnClick(this)"><a>#Portrait</a></li>
-                <li class="hashtag header-nav__item" id="art" onclick="getIdOnClick(this)"><a>#Art</a></li>
-                <li class="hashtag header-nav__item" id="fashion" onclick="getIdOnClick(this)"><a>#Fashion</a></li>
-                <li class="hashtag header-nav__item" id="architecture" onclick="getIdOnClick(this)"><a>#Architecture</a></li>
-                <li class="hashtag header-nav__item" id="travel" onclick="getIdOnClick(this)"><a>#Travel</a></li>
-                <li class="hashtag header-nav__item" id="sport" onclick="getIdOnClick(this)"><a>#Sport</a></li>
-                <li class="hashtag header-nav__item" id="animals" onclick="getIdOnClick(this)"><a>#Animals</a></li>
-                <li class="hashtag header-nav__item" id="events" onclick="getIdOnClick(this)"><a>#Events</a></li>
+                <li class="hashtag header-nav__item" id="portrait" onclick="getIdOnClick(this)"><button aria-label="tag portrait">#Portrait</button></li>
+                <li class="hashtag header-nav__item" id="art" onclick="getIdOnClick(this)"><button aria-label="tag art">#Art</button></li>
+                <li class="hashtag header-nav__item" id="fashion" onclick="getIdOnClick(this)"><button aria-label="tag fashion">#Fashion</button></li>
+                <li class="hashtag header-nav__item" id="architecture" onclick="getIdOnClick(this)"><button aria-label="tag architecture">#Architecture</button></li>
+                <li class="hashtag header-nav__item" id="travel" onclick="getIdOnClick(this)"><button aria-label="tag travel">#Travel</button></li>
+                <li class="hashtag header-nav__item" id="sport" onclick="getIdOnClick(this)"><button aria-label="tag sport">#Sport</button></li>
+                <li class="hashtag header-nav__item" id="animals" onclick="getIdOnClick(this)"><button aria-label="tag animals">#Animals</button></li>
+                <li class="hashtag header-nav__item" id="events" onclick="getIdOnClick(this)"><button aria-label="tag event"  >#Events</button></li>
             </ul>
         </nav>
     </header>
     <main class="index-main">
         <h1>Nos photographes</h1>
-        <section class="index-main" id="profileContainer">
+        <div class="index-main" id="profileContainer">
 
-        </section>
+        </div>
     </main>
     <script src="./js/index.js"></script>
     <script src="./js/Templates/Photographer.js"></script>

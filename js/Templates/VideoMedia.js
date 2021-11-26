@@ -9,7 +9,7 @@ class VideoMedia {
         <a onClick="lightbox('${this.media.video}', '${
       this.media.title
     }', '${mediaOfCurrentPhotographer.indexOf(this.media)}')">
-            <video class="media__content" preload="metadata" controls> <source src="img/${
+            <video class="media__content" preload="metadata"> <source src="img/${
               this.media.video
             }#t=0.1" type="video/mp4"></video>
         </a>
@@ -19,7 +19,7 @@ class VideoMedia {
                 <p class="media__likes__count" id="likes-count-${
                   this.media.id
                 }">${this.media.likes}</p>
-                <img src="./img/icons/like-icon.png" class="media__likes__img" onClick="addLike(${
+                <img src="./img/icons/like-icon.png" alt="like" class="media__likes__img" onClick="addLike(${
                   this.media.id
                 }, ${this.media.likes})">
             </div>

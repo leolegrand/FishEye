@@ -43,7 +43,7 @@ function mediaContent() {
     (media) => media.photographerId.toString() === currentId
   )
   // apply the class MediasTemplate to the medias
-  media = new MediasTemplate(mediaOfCurrentPhotographer)
+  media = new Medias(mediaOfCurrentPhotographer)
 
   // call the method to sort image & video from medias
   media.sortingMedias()
@@ -55,37 +55,37 @@ function mediaContent() {
 // create an array (arr) and apply the MediasTemplate class to acces a sorting method
 function sortByLikesOnClick() {
   let arr
-  mediasSortedByLikes = new MediasTemplate(arr)
+  mediasSortedByLikes = new Medias(arr)
   // sort the array by number or likes
   mediasSortedByLikes.sortedByLikes()
   // clear the template
   mediasSortedByLikes.clearContainer()
   // generate a new template with the sorted array
-  mediasSortedByLikes.mediasTemplate()
+  mediasSortedByLikes.sortingMedias()
 }
 
 // create an array (arr) and apply the MediasTemplate class to acces a sorting method
 function sortByDateOnClick() {
   let arr
-  mediasSortedByDate = new MediasTemplate(arr)
+  mediasSortedByDate = new Medias(arr)
   // sort the array by date
   mediasSortedByDate.sortedByDate()
   // clear the template
   mediasSortedByDate.clearContainer()
   // generate a new template with the sorted array
-  mediasSortedByDate.mediasTemplate()
+  mediasSortedByDate.sortingMedias()
 }
 
 // create an array (arr) and apply the MediasTemplate class to acces a sorting method
 function sortByNameOnClick() {
   let arr
-  mediasSortedByName = new MediasTemplate(arr)
+  mediasSortedByName = new Medias(arr)
   // sort the array by name
   mediasSortedByName.sortedByName()
   // clear the template
   mediasSortedByName.clearContainer()
   // generate a new template with the sorted array
-  mediasSortedByName.mediasTemplate()
+  mediasSortedByName.sortingMedias()
 }
 
 // increment like count in a media
@@ -93,5 +93,4 @@ function sortByNameOnClick() {
 function addLike(mediaid, medialikes) {
   const newCount = medialikes + 1
   document.getElementById(`likes-count-${mediaid}`).innerHTML = newCount
-  console.log('testoj')
 }

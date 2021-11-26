@@ -14,7 +14,6 @@ function lightbox(image, title, index) {
           </div>`
 
   document.body.appendChild(lightbox)
-
   // next icon
   let nextLightbox = document.querySelector('.lightbox__next')
   // previous icon
@@ -22,9 +21,9 @@ function lightbox(image, title, index) {
   // content
   let displayedMedia = document.querySelector('#lightbox-media')
   // close icon
-  let closeLightbox = document.querySelector('.lightbox__close')
+  let close = document.querySelector('.lightbox__close')
 
-  nextLightbox.addEventListener('click', () => {
+  function nextMedia() {
     //IF at the end of the array, start over from the beginning
     if (index == mediaOfCurrentPhotographer.length - 1) {
       index = 0
@@ -48,10 +47,10 @@ function lightbox(image, title, index) {
     <h2>${mediaOfCurrentPhotographer[index].title}</h2>`
       }
     }
-  })
+  }
 
-  // ^ REVERSE LOGIC from nextLightbox ^
-  prevLightbox.addEventListener('click', () => {
+  function prevMedia() {
+    // ^ REVERSE LOGIC from nextLightbox ^
     if (index == 0) {
       index = mediaOfCurrentPhotographer.length - 1
       if (mediaOfCurrentPhotographer[index].video != null) {
@@ -69,10 +68,31 @@ function lightbox(image, title, index) {
     <h2>${mediaOfCurrentPhotographer[index].title}</h2>`
       }
     }
-  })
+  }
 
   //close the lightbox when the button is clicked
-  closeLightbox.addEventListener('click', () => {
+  function closeLightbox() {
     document.body.removeChild(lightbox)
+  }
+
+  // listen for click on lightbox interraction
+  nextLightbox.addEventListener('click', nextMedia)
+  prevLightbox.addEventListener('click', prevMedia)
+  close.addEventListener('click', closeLightbox)
+
+  // listen for keyboard event on lightbox interraction
+  window.addEventListener('keydown', function (e) {
+    e.preventDefault
+    switch (e.key) {
+      case 'ArrowLeft':
+        prevMedia()
+        break
+      case 'ArrowRight':
+        nextMedia()
+        break
+      case 'Escape':
+        closeLightbox()
+        break
+    }
   })
 }

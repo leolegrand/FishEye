@@ -1,58 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FishEye | Photographer</title>
-    <link href="./css/main.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link href="./css/main.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
     <div class="body-container">
-    <header class="header-photographer-page">
+      <header class="header-photographer-page">
         <a href="./index.html" class="logo">
-            <img src="./img/logo/logo.png">
+          <img src="./img/logo/logo.png" alt="Fisheye Home page" />
         </a>
-    </header>
-    <main class="photographer-main-container">
-        <div class="photographer-page-banner" id="photographer-page-banner">
-        </div>
+      </header>
+
+      <main class="photographer-main-container">
+        <div
+          class="photographer-page-banner"
+          id="photographer-page-banner"
+        ></div>
 
         <div class="sort-by-container">
-            <p>Trier par</p>
-                <div class="sort-by-menu" id="sort-by-menu">
-                    <div>
-                        <button class="main-button--without-border-radius main-button--select" onclick="sortByLikesOnClick()">Popularité
-                           </button>
-                    </div>
-                    <svg class="sort-by-menu-arrow" id="menu-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20"><path d="M5 6l5 5l5-5l2 1l-7 7l-7-7z" fill="currentColor"/></svg>
-                    
-                    <div id="button-date" ></div>
-                    <div id="button-title"></div>
-                </div>
-        </div> 
+          <p>Trier par</p>
+          <div class="sort-by-menu" id="sort-by-menu">
+            <div>
+              <button
+                class="main-button--without-border-radius main-button--select"
+                tabindex="1"
+                onclick="sortByLikesOnClick()"
+                aria-label="trier par popularité"
+              >
+                Popularité
+              </button>
+            </div>
+            <svg
+              tabindex="0"
+              class="sort-by-menu-arrow"
+              id="menu-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              role="button"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              role="menu"
+              aria-label="dérouler le menu"
+              width="1em"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 20 20"
+            >
+              <path d="M5 6l5 5l5-5l2 1l-7 7l-7-7z" fill="currentColor" />
+            </svg>
+
+            <div id="button-date"></div>
+            <div id="button-title"></div>
+          </div>
+        </div>
+
         <section class="media-container" id="media-container">
+          <h2 aria-label="medias" class="hidden">Medias</h2>
         </section>
-    
-    
-    </main>
-
-
-
-
-    
-    <script src="./js/photographer-page.js"></script>
-    <script src="./js/Factories/MediasFactory.js"></script>
-    <script src="./js/Templates/Photographer.js"></script>
-    <script src="./js/Templates/ImageMedia.js"></script>
-    <script src="./js/Templates/VideoMedia.js"></script>
-    <script src="./js/Templates/MediasTemplate.js"></script>
-    <script src="./js/Modules/dropdown-menu-select.js"></script>
-    <script src="./js/Modules/lightbox.js"></script>
-    <script src="./js/Modules/form.js"></script>
-</div>
-</body>
+      </main>
+      <script src="./js/photographer-page.js"></script>
+      <script src="./js/Templates/Photographer.js"></script>
+      <script src="./js/Templates/ImageMedia.js"></script>
+      <script src="./js/Templates/VideoMedia.js"></script>
+      <script src="./js/Factories/MediasFactory.js"></script>
+      <script src="./js/Templates/Medias.js"></script>
+      <script src="./js/Modules/dropdown-menu-select.js"></script>
+      <script src="./js/Modules/lightbox.js"></script>
+      <script src="./js/Modules/form.js"></script>
+    </div>
+  </body>
 </html>
